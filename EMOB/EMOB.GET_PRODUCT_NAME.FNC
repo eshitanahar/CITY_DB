@@ -1,0 +1,17 @@
+CREATE OR REPLACE FUNCTION EMOB.GET_PRODUCT_NAME (pAccountTypeId NUMBER)
+   RETURN VARCHAR2
+IS
+   vProductName   VARCHAR2 (100);
+BEGIN
+   SELECT full_desc
+     INTO vProductName
+     FROM MB_PRODUCT_MST
+    WHERE AC_TYPE_ID = pAccountTypeId;
+
+   RETURN vProductName;
+EXCEPTION
+   WHEN OTHERS
+   THEN
+      RETURN vProductName;
+END;
+/
