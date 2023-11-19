@@ -17,7 +17,7 @@ BEGIN
                '[[:space:]]',
                NULL);                              --remove newline characters
    END LOOP;
-
+----
    RETURN l_clob;
 END;
 /
